@@ -7,8 +7,8 @@ class Library:
         self.phone = phone
 
     def __str__(self):
-        return f"Library: {self.city}, {self.street}, {self.zip_code},
-        {self.open_hours}, {self.phone}"
+        return f"Library: {self.city}, {self.street}, {self.zip_code},"
+        {self.open_hours}, {self.phone}
 
 
 class Employee:
@@ -24,24 +24,22 @@ class Employee:
         self.phone = phone
 
     def __str__(self):
-        return f"Employee: {self.first_name} {self.last_name},
+        return f"Employee: {self.first_name} {self.last_name},"
         {self.hire_date}, {self.birth_date}, {self.city},
-        {self.street}, {self.zip_code}, {self.phone}"
+        {self.street}, {self.zip_code}, {self.phone}
 
 
 class Book:
-    def __init__(self, library, publication_date, author_name,
-                 author_surname, number_of_pages):
-        self.library = library
-        self.publication_date = publication_date
-        self.author_name = author_name
-        self.author_surname = author_surname
-        self.number_of_pages = number_of_pages
+    def __init__(self, employee, student, books, order_date):
+        self.employee = employee
+        self.student = student
+        self.books = books
+        self.order_date = order_date
 
     def __str__(self):
-        return f"Book: {self.author_name} {self.author_surname},
-        {self.publication_date}, {self.number_of_pages},
-        {str(self.library)}"
+        books_info = "\n".join([str(book) for book in self.books])
+        return f"Order: {str(self.employee)}, {str(self.student)}, " \
+               f"Books: \n{books_info}, {self.order_date}"
 
 
 class Order:
@@ -53,8 +51,8 @@ class Order:
 
     def __str__(self):
         books_info = "\n".join([str(book) for book in self.books])
-        return f"Order: {str(self.employee)}, {str(self.student)},
-        Books: \n{books_info}, {self.order_date}"
+        return f"Order: {str(self.employee)}, {str(self.student)}, " \
+               f"Books: \n{books_info}, {self.order_date}"
 
 
 library1 = Library("Katowice", "ul. Sandomierska 15", "40-216",
@@ -76,7 +74,8 @@ book4 = Book(library2, "1817-07-18", "Władysław", "Rejmont", 180)
 book5 = Book(library2, "1847-06-09", "Dawid", "Kubacki", 220)
 
 order1 = Order(employee1, "Klaudia Ramiączek", [book1, book2], "2023-06-01")
-order2 = Order(employee2, "Rlaudia Kamiączek", [book3, book4, book5], "2023-06-02")
+order2 = Order(employee2, "Rlaudia Kamiączek",
+               [book3, book4, book5], "2023-06-02")
 
 print(order1)
 print(order2)

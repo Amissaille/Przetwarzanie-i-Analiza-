@@ -6,8 +6,8 @@ class Property:
         self.address = address
 
     def __str__(self):
-        return f"Property: {self.area} sq. meters, {self.rooms} rooms,
-        ${self.price}, Address: {self.address}"
+        return f"Property: {self.area} sq. meters, {self.rooms} rooms,"
+        ${self.price}, Address: {self.address}
 
 
 class House(Property):
